@@ -38,6 +38,7 @@ const InterviewPrep = () => {
       setQuestions(res.data.session.questions || []);
     } catch (err) {
       setFetchError(parseError(err));
+      toast.error(parseError(err));
     } finally {
       setLoading(false);
     }
@@ -45,12 +46,13 @@ const InterviewPrep = () => {
 
   const generateQuestions = async () => {
     setGenerating(true);
+    const toastId = toast.loading("Generating questions...");
     try {
       await axios.post(API_PATHS.AI.GENERATE_QUESTIONS, { sessionId: id });
       await fetchQuestions();
-      toast.success("Questions generated!");
+      toast.success("Questions generated!", { id: toastId });
     } catch (err) {
-      toast.error(parseError(err));
+      toast.error(parseError(err), { id: toastId });
     } finally {
       setGenerating(false);
     }
@@ -62,12 +64,9 @@ const InterviewPrep = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-800 text-white">
-
       <Toaster position="top-right" />
 
       <div className="max-w-4xl mx-auto px-6 py-10">
-
-        {/* 🔥 Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -98,10 +97,8 @@ const InterviewPrep = () => {
           />
         </motion.div>
 
-        {/* Divider */}
         <div className="border-t border-white/10 mb-8" />
 
-        {/* Content */}
         {loading ? (
           <div className="space-y-4">
             {[...Array(4)].map((_, i) => (
@@ -129,7 +126,6 @@ const InterviewPrep = () => {
             </div>
           </AnimatePresence>
         )}
-
       </div>
     </div>
   );

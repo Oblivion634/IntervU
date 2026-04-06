@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { API_PATHS } from "../utils/apiPaths";
 import axiosInstance from "../utils/axiosInstance";
 import { motion } from "framer-motion";
+import toast, { Toaster } from "react-hot-toast";
 
 const Dashboard = () => {
   const [sessions, setSessions] = useState([]);
@@ -15,26 +16,27 @@ const Dashboard = () => {
       const res = await axiosInstance.get(API_PATHS.SESSION.GET_ALL);
       setSessions(res.data.sessions);
     } catch (error) {
-      console.log(error.response);
+      toast.error("Failed to fetch sessions");
     }
   };
 
   const createSession = async () => {
-    if (!role || !experience) return alert("Fill all fields");
+    if (!role || !experience) return toast.error("Fill all fields");
 
+    const toastId = toast.loading("Creating session...");
     try {
       await axiosInstance.post(API_PATHS.SESSION.CREATE, {
         role,
         experience,
         questions: [],
       });
+      toast.success("Session created!", { id: toastId });
+      setRole("");
+      setExperience("");
+      fetchSessions();
     } catch (error) {
-      console.log(error.response);
+      toast.error("Failed to create session", { id: toastId });
     }
-
-    setRole("");
-    setExperience("");
-    fetchSessions();
   };
 
   useEffect(() => {
@@ -43,8 +45,8 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-800 text-white px-6 md:px-12 py-10">
+      <Toaster position="top-right" />
 
-      {/* Header */}
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -58,7 +60,6 @@ const Dashboard = () => {
         </p>
       </motion.div>
 
-      {/* Create Session */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -92,7 +93,6 @@ const Dashboard = () => {
         </div>
       </motion.div>
 
-      {/* Sessions */}
       {sessions.length === 0 ? (
         <motion.div
           initial={{ opacity: 0 }}
