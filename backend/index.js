@@ -17,7 +17,17 @@ const app = express();
 connectDB();
 
 // Middleware
-app.use(cors());
+import cors from "cors";
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173", // local testing
+      "https://interv-u-delta.vercel.app", // deployed frontend
+    ],
+    credentials: true,
+  }),
+);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
