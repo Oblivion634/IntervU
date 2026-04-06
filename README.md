@@ -6,43 +6,47 @@
 
 ## ✨ Features
 
-* 🤖 AI-generated interview questions using **Gemini**
-* 📊 Personalized practice sessions
-* 🔄 Real-time feedback (extendable)
-* 💾 User data storage and history tracking
-* ⚡ Fast and responsive UI
+- 🤖 AI-generated interview questions using **Gemini**
+- 📊 Personalized practice sessions
+- 🔄 Real-time feedback (extendable)
+- 💾 User data storage and history tracking
+- ⚡ Fast and responsive UI
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** React
-* **Backend:** Express.js, Node.js
-* **Database:** MongoDB with Mongoose
-* **AI Integration:** Gemini API
+- **Frontend:** React
+- **Backend:** Express.js, Node.js
+- **Database:** MongoDB with Mongoose
+- **AI Integration:** Gemini API
 
 ---
 
 ## 🧠 Concepts Used
 
-* RESTful API design
-* CRUD operations
-* State management (React Hooks)
-* Async/Await & API handling
-* MVC architecture (optional if you followed it)
-* AI Prompt Engineering
+- RESTful API design
+- CRUD operations
+- State management (React Hooks)
+- Async/Await & API handling
+- MVC architecture (optional if you followed it)
+- AI Prompt Engineering
 
 ---
 
 ## 📸 Screenshots
 
-> Add your screenshots here
+### 🏠 Landing Page
 
-```
-![Landing Page Page](./screenshots/landing-page.png)
+![Landing Page](./screenshots/landing-page.png)
+
+### 🎯 Interview Page
+
 ![Interview Page](./screenshots/interview-page.png)
-![DashBoard](./screenshots/DashBoard.png)
-```
+
+### 📊 Dashboard
+
+![Dashboard](./screenshots/DashBoard.png)
 
 ---
 
@@ -93,10 +97,10 @@ GEMINI_API_KEY=your_api_key
 
 ## 🚀 Future Improvements
 
-* 🎤 Voice-based interview simulation
-* 📈 Performance analytics dashboard
-* 🧑‍💼 Role-specific interview tracks
-* 🌐 Deployment (AWS/Vercel)
+- 🎤 Voice-based interview simulation
+- 📈 Performance analytics dashboard
+- 🧑‍💼 Role-specific interview tracks
+- 🌐 Deployment (AWS/Vercel)
 
 ---
 
@@ -111,4 +115,3 @@ Pull requests are welcome. For major changes, please open an issue first.
 **Shalini Singh**
 
 ---
-
