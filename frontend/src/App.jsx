@@ -8,11 +8,22 @@ import InterviewPrep from "./pages/InterviewPrep";
 import Navbar from "./components/Navbar";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
     <>
       <Navbar />
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        toastOptions={{
+          style: {
+            background: "#1e293b",
+            color: "#fff",
+          },
+        }}
+      />
       <Routes>
 
         <Route path="/" element={<LandingPage />} />
@@ -20,9 +31,9 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/interview/:id" element={<InterviewPrep />} />
-        <Route path="*" element={<NotFound/>}/>
+        <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   );
 };
