@@ -1,3 +1,6 @@
+import dns from "dns";
+dns.setDefaultResultOrder("ipv4first");
+
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -14,12 +17,7 @@ const app = express();
 connectDB();
 
 // Middleware
-app.use(
-  cors({
-    origin: "https://interv-u-two.vercel.app/",
-    credentials: true,
-  }),
-);
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
