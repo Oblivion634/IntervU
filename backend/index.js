@@ -16,7 +16,8 @@ connectDB();
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://interv-u-two.vercel.app/",
+    credentials: true,
   }),
 );
 
