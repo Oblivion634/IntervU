@@ -1,7 +1,6 @@
-const BASE_URL =
-  import.meta.env.VITE_API_BASE_URL
-    ? `${import.meta.env.VITE_API_BASE_URL}/api`
-    : "http://localhost:9000/api";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL
+  ? `${import.meta.env.VITE_API_BASE_URL}/api`
+  : "https://intervu-ii5q.onrender.com/api";
 
 export const API_PATHS = {
   AUTH: {
